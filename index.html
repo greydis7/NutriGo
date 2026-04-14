@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NutriGo</title>
+    <meta name="description" content="Landing de nutrición: planes personalizados, consejos y recursos para una vida saludable.">
+    <link rel="icon" href="Images\Logo-de-nutrición-NutriGo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Css/styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Saltar contenido</a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="/" class="logo" aria-label="Inicio - NutriGo">
+                <img src="logo.png" alt="NutriGo" width="140" height="40">
+            </a>
+            <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Abrir menú">☰</button>
+            <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="hero" class="hero" aria-labelledby="hero-titulo">
+            <div class="container">
+                <h1 id="hero-titulo">Transforma tu alimentación, mejora tu vida</h1>
+                <h2 class="hero-subtitle">Planes nutricionales personalizados, recetas fáciles y seguimiento profesional para alcanzar tus objetivos de salud.</h2>
+                <div class="hero-actions">
+                    <p class="hero-tag">Comienza con un plan diseñado para ti</p>
+                    <a href="#contacto" class="button-primary">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" aria-labelledby="beneficios-titulo">
+            <div class="container">
+                <h2 id="beneficios-titulo">Beneficios de nuestro enfoque</h2>
+
+                <div class="benefit-list">
+                    <article class="benefit" aria-labelledby="b1-titulo">
+                        <h3 id="b1-titulo">Planes personalizados</h3>
+                        <p>Dietas adaptadas a tus gustos, horarios y condiciones de salud.</p>
+                    </article>
+
+                    <article class="benefit" aria-labelledby="b2-titulo">
+                        <h3 id="b2-titulo">Soporte profesional</h3>
+                        <p>Asesoría continua con nutricionistas certificados.</p>
+                    </article>
+
+                    <article class="benefit" aria-labelledby="b3-titulo">
+                        <h3 id="b3-titulo">Recetas y recursos</h3>
+                        <p>Recetas fáciles, listas de compra y guías prácticas para el día a día.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" aria-labelledby="footer-titulo">
+        <div class="container footer-inner">
+            <h2 id="footer-titulo">Contacto</h2>
+
+            <form id="contact-form" class="contact-form" novalidate aria-describedby="form-help form-status">
+                <p id="form-help" class="help-text">Rellena el formulario y nos pondremos en contacto contigo. Campos con <span aria-hidden="true">*</span> obligatorios.</p>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="name">Nombre <span aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-help name-error">
+                        <small id="name-help" class="help-text">Tu nombre completo</small>
+                        <div id="name-error" class="error-message" aria-live="assertive"></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-help email-error">
+                        <small id="email-help" class="help-text">Usa un correo válido (ej: nombre@ejemplo.com)</small>
+                        <div id="email-error" class="error-message" aria-live="assertive"></div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Mensaje <span aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-help message-error"></textarea>
+                    <small id="message-help" class="help-text">Cuéntanos brevemente tu consulta</small>
+                    <div id="message-error" class="error-message" aria-live="assertive"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="button-primary">Enviar</button>
+                    <div id="form-status" role="status" aria-live="polite" class="form-status" aria-atomic="true"></div>
+                </div>
+            </form>
+
+            <address>
+                <p>NutriGo — Centro de Nutrición</p>
+                <p>Dirección: Calle Nueva Providencia 110, Santiago</p>
+                <p>Teléfono: <a href="tel:+56926558789">+56 9 2655 8789</a></p>
+                <p>Email: <a href="mailto:info@nutrigo.example">info@nutrigo.example</a></p>
+            </address>
+            <p>&copy; <span id="year"></span> NutriGo. Todos los derechos reservados.</p>
+        </div>
+        <script>
+            // Fecha en el pie para plantilla básica
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+    </footer>
+
+    <script>
+        (function(){
+            // cargar estilo correcto si no está cargado (mantener compatibilidad con plantilla previa)
+            var head = document.head;
+            if(head && !head.querySelector('link[href="Css/styles.css"]')){
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'Css/styles.css';
+                head.appendChild(link);
+            }
+
+            // nav toggle simple accesible
+            var toggle = document.querySelector('.nav-toggle');
+            var nav = document.getElementById('primary-nav');
+            if(toggle && nav){
+                toggle.addEventListener('click', function(){
+                    var expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    nav.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+        // Accessible client-side validation (progressive enhancement)
+        (function(){
+            var form = document.getElementById('contact-form');
+            if(!form) return;
+
+            var name = form.querySelector('#name');
+            var email = form.querySelector('#email');
+            var message = form.querySelector('#message');
+            var status = document.getElementById('form-status');
+
+            function showError(field, msg){
+                var err = document.getElementById(field.id + '-error');
+                if(err){
+                    err.textContent = msg;
+                    field.setAttribute('aria-invalid', 'true');
+                }
+            }
+            function clearError(field){
+                var err = document.getElementById(field.id + '-error');
+                if(err){ err.textContent = ''; field.removeAttribute('aria-invalid'); }
+            }
+
+            function validate(){
+                var ok = true;
+                clearError(name); clearError(email); clearError(message);
+
+                if(!name.value.trim()){
+                    showError(name, 'El nombre es obligatorio.'); ok = false;
+                }
+                if(!email.value.trim()){
+                    showError(email, 'El correo es obligatorio.'); ok = false;
+                } else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+                    showError(email, 'Formato de correo no válido.'); ok = false;
+                }
+                if(!message.value.trim() || message.value.trim().length < 10){
+                    showError(message, 'El mensaje debe tener al menos 10 caracteres.'); ok = false;
+                }
+                return ok;
+            }
+
+            form.addEventListener('submit', function(ev){
+                ev.preventDefault();
+                status.textContent = '';
+                if(validate()){
+                    // Simular envío
+                    status.textContent = 'Enviando...';
+                    // Aquí se podría hacer fetch() a un endpoint
+                    setTimeout(function(){ status.textContent = 'Mensaje enviado. Gracias.'; form.reset(); }, 700);
+                } else {
+                    status.textContent = 'Corrige los errores del formulario.';
+                    // Focus en el primer campo con error
+                    var firstError = form.querySelector('[aria-invalid="true"]');
+                    if(firstError) firstError.focus();
+                }
+            });
+
+            // Clear errors while typing
+            [name,email,message].forEach(function(f){
+                f.addEventListener('input', function(){ clearError(f); });
+            });
+        })();
+    </script>
+</body>
+</html>
