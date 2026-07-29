@@ -1,0 +1,56 @@
+1. CAMBIAR ENTRADA DE TEXTO A SELECTOR DE ARCHIVOS:
+Reemplaza el input de texto de la URL de la imagen por `<input type="file" accept="image/*">`. Vincula correctamente su `<label>`.
+
+2. LÓGICA DE PERSISTENCIA LOCAL (Base64):
+Implementa un 'FileReader'. Cuando el usuario seleccione una imagen de sus carpetas, conviértela en una cadena Base64 (Data URL) para almacenarla en el estado y guardarla en el 'localStorage' de forma persistente.
+
+3. RESTAURAR LOS 4 PRODUCTOS ORIGINALES:
+Si el 'localStorage' está vacío, el 'useState' debe cargar por defecto:
+- Protein Clean | Proteínas | $89990 | src/assets/proteina.jpg
+- Omega Balance | Suplementos | $40990 | src/assets/ganador-peso.jpg
+- Vitamin Boost | Vitaminas | $59990 | src/assets/creatina.jpg
+- Pro Shake | Proteínas | $39990 | src/assets/proteina.jpg
+
+
+1. CONSUMO ASÍNCRONO Y TRADUCCIÓN:
+Implementa un 'useEffect' con 'fetch' asíncrono y bloque 'try-catch'. El endpoint es: `https://api.spoonacular.com/recipes/complexSearch?query=ensalada&number=4&apiKey=5667cea7616e444a958e66d262374828`. (Usa query=ensalada para forzar resultados en español).
+
+2. ESTADOS DE CARGA Y ERRORES:
+Crea estados para 'isLoading' (muestra un spinner giratorio) y 'error' (muestra el mensaje: "Lo sentimos, no pudimos cargar las sugerencias nutricionales en este momento" si falla la petición).
+
+3. DISEÑO DE TARJETAS PREMIUM:
+Mapea los resultados en tarjetas con fondo oscuro traslúcido (`bg-gray-900/60 backdrop-blur-md`), bordes redondeados (`rounded-2xl`) y un efecto hover que eleve la tarjeta (`hover:-translate-y-2`) con sombra cian. Usa 'line-clamp-2' para los títulos.
+
+
+
+1. ESTADOS Y ACCESIBILIDAD (AAA):
+Crea estados para: tema ('dark'/'light') y fontSize ('text-base'). Implementa un modal de Accesibilidad flotante para cambiar el tamaño de letra y alternar el Modo Claro/Oscuro.
+
+2. FORMULARIOS SEGUROS:
+Crea modales para Login y Registro. Valida que ningún campo esté vacío, el email tenga formato correcto y el RUT sea válido. Si el login es exitoso, cambia 'isLoggedIn' a true y muestra un icono de usuario con el nombre "Greydis" en el Navbar.
+
+3. CRUD Y PREVENCIÓN XSS:
+Antes de guardar un producto nuevo en el estado y el localStorage, pasa los inputs por una función sanitizadora que reemplace `<, >, &, "` para prevenir ataques XSS.
+
+
+Actúa como un desarrollador experto en Tailwind CSS. Eliminaste las clases de diseño visual del <header> y rompiste la estructura. Corrige ÚNICAMENTE la estructura visual (JSX + Tailwind), manteniendo INTACTA la lógica de React:
+
+1. HEADER Y LOGO:
+Contenedor: `<header className="w-full flex items-center justify-between px-6 py-4 bg-gray-900 text-white border-b border-gray-800 sticky top-0 z-50">`
+Logo: Restringido con `<img src="..." className="w-12 h-12 object-contain rounded-full border-2 border-cyan-500" />`
+
+2. NAVEGACIÓN EN LÍNEA:
+El nav DEBE ser: `<nav className="flex flex-row items-center gap-4">`. Los botones deben tener: `px-4 py-2 text-sm font-semibold rounded-xl bg-gray-800 border border-cyan-500`.
+
+3. MAIN Y CARRUSEL:
+Todo el contenido central envuelto en: `<main className="w-full max-w-7xl mx-auto flex flex-col gap-10 p-4 sm:p-6 flex-grow">`.
+
+
+Actúa como un desarrollador experto en UI/UX. Refactoriza la estructura aplicando estos cambios de diseño:
+
+1. CONTENEDORES Y SIMETRÍA:
+Envuelve el subtítulo, buscador, CRUD y grillas en: `max-w-6xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-6` para evitar que toquen los bordes de la pantalla.
+
+2. VISIBILIDAD EN MODO CLARO:
+Barra de búsqueda: Aplica `bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700`.
+Tarjetas: Usa `bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800` para que tengan contraste y no desaparezcan con el fondo blanco.
